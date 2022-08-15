@@ -3,8 +3,8 @@ function Employee(id, name, dep, level,salary, img) {
     this.fullName = name;
     this.dep = dep;
     this.level = level;
-    this.img = img;
     this.salary = salary(level);
+    this.img = img;
     function salary(level) {
         switch (level) {
             case "Junior":
@@ -14,7 +14,7 @@ function Employee(id, name, dep, level,salary, img) {
                 return Math.round(Math.random() * 500 + 1000);
                 break;
             case "Senior":
-                return Math.round(Math.random() * 500 + 150);
+                return Math.round(Math.random() * 500 + 1500);
                 break;
         }
     }
@@ -35,4 +35,45 @@ let employes = [
 
 for (let i = 0; i < employes.length; i++) {
     console.log(employes[i].print());
+}
+let arrTh = ["Id", "Name", "Department", "Level", "Salary"]
+
+let theTable = document.createElement("table");
+let thead = document.createElement("thead");
+let tbody = document.createElement("tbody");
+
+document.querySelector("main").appendChild(theTable);
+document.querySelector("table").appendChild(thead);
+theTable.appendChild(tbody);
+for (let i = 0; i < arrTh.length; i++) {
+    let th = document.createElement("th");
+    th.textContent = arrTh[i];
+    thead.appendChild(th)
+}
+
+for (let i = 0; i < employes.length; i++) {
+    let row = document.createElement("tr");
+    tbody.appendChild(row)
+    let arrKey = Object.keys(employes[i]).slice(0,5);
+    for (j = 0; j < arrKey.length; j++){
+        let td = document.createElement("td");
+        row.appendChild(td);
+        td.textContent = employes[i][arrKey[j]];
+    }
+// //=================================
+// let td2 = document.createElement("td");
+// row.appendChild(td2);
+// td2.textContent = employes[i].fullName;
+// //=================================
+// let td3 = document.createElement("td");
+// row.appendChild(td3);
+// td3.textContent = employes[i].dep;
+// //=================================
+// let td4 = document.createElement("td");
+// row.appendChild(td4);
+// td4.textContent = employes[i].level;
+// //=================================
+// let td5 = document.createElement("td");
+// row.appendChild(td5);
+// td5.textContent = employes[i].salary;
 }
