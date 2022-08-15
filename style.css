@@ -32,13 +32,38 @@ header ul li:hover {
     background-color: brown;
 
 }
+main {
+    height: calc(100vh - 120px);
+}
+table {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    
+}
+table tr:nth-of-type(even) {
+    background-color: #f5f5f5;
+}
+table tr:nth-of-type(odd) {
+    background-color: #dcdcdc;
+}
+table td {
+    padding: 10px;
+    text-align: center;
+}
+table th {
+    background-color: #dcdcdc;
+    padding: 10px;
+}
 footer{
     display: flex;
     justify-content: space-around;
     height: 60px;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.39);
-}
-footer a {
     color: white;
+}
+footer i {
+    color: white;
+    margin-left: 20px;
 }
