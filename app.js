@@ -22,7 +22,6 @@ function Employee(id, name, dep, level,salary, img) {
         return `Hello ${this.fullName} your salary is ${this.salary} JD`;
     }
 }
-
 let employes = [
     new Employee(1000, "Ghazi Samer", "Administration", "Senior"),
     new Employee(1001, "Lana Ali", "Finance", "Senior"),
@@ -60,20 +59,4 @@ for (let i = 0; i < employes.length; i++) {
         row.appendChild(td);
         td.textContent = employes[i][arrKey[j]];
     }
-// //=================================
-// let td2 = document.createElement("td");
-// row.appendChild(td2);
-// td2.textContent = employes[i].fullName;
-// //=================================
-// let td3 = document.createElement("td");
-// row.appendChild(td3);
-// td3.textContent = employes[i].dep;
-// //=================================
-// let td4 = document.createElement("td");
-// row.appendChild(td4);
-// td4.textContent = employes[i].level;
-// //=================================
-// let td5 = document.createElement("td");
-// row.appendChild(td5);
-// td5.textContent = employes[i].salary;
 }
