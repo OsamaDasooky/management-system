@@ -1,10 +1,10 @@
-function Employee(id, name, dep, level,salary, img) {
+function Employee(id, name, dep, level,img,salary ) {
     this.id = id;
     this.fullName = name;
     this.dep = dep;
     this.level = level;
-    this.salary = salary(level);
     this.img = img;
+    this.salary = salary(level);
     function salary(level) {
         switch (level) {
             case "Junior":
@@ -23,24 +23,14 @@ function Employee(id, name, dep, level,salary, img) {
     }
 }
 let employes = [
-    new Employee(1000, "Ghazi Samer", "Administration", "Senior"),
-    new Employee(1001, "Lana Ali", "Finance", "Senior"),
-    new Employee(1002, "Tamara Ayoub ", "Marketing", "Senior"),
-    new Employee(1003, "Safi Walid", "Administration", "Mid-Senior"),
-    new Employee(1004, "Omar Zaid", "Development", "Senior"),
-    new Employee(1005, "Rana Saleh", "Development", "Junior"),
-    new Employee(1006, "Ghazi Samer", "Finance", "Mid-Senior"),
+    new Employee(1000, "Ghazi Samer", "Administration", "Senior","https://place-hold.it/200x200/ddd"),
+    new Employee(1001, "Lana Ali", "Finance", "Senior","https://place-hold.it/200x200/ddd"),
+    new Employee(1002, "Tamara Ayoub ", "Marketing", "Senior","https://place-hold.it/200x200/ddd"),
+    new Employee(1003, "Safi Walid", "Administration", "Mid-Senior","https://place-hold.it/200x200/ddd"),
+    new Employee(1004, "Omar Zaid", "Development", "Senior","https://place-hold.it/200x200/ddd"),
+    new Employee(1005, "Rana Saleh", "Development", "Junior","https://place-hold.it/200x200/ddd"),
+    new Employee(1006, "Ghazi Samer", "Finance", "Mid-Senior","https://place-hold.it/200x200/ddd")
 ]
-
-for (let i = 0; i < employes.length; i++) {
-    console.log(employes[i].print());
-}
-let arrTh = ["Id", "Name", "Department", "Level", "Salary"]
-
-let theTable = document.createElement("table");
-let thead = document.createElement("thead");
-let tbody = document.createElement("tbody");
-
 // add employee
 let addButton = document.getElementsByClassName("login-box")[0];        
 document.querySelector(".add-btn button").addEventListener("click", function () {
@@ -67,34 +57,78 @@ submit.addEventListener("click", function () {
     document.getElementsByTagName("main")[0].classList.remove("blur");
     add()
 })
+//create elements
+for (let i = 0; i < employes.length; i++) {
+    let card = document.createElement("div");
+    document.querySelector("main .container").appendChild(card);
+    card.classList.add("card")
 
-document.querySelector("main").appendChild(theTable);
-document.querySelector("table").appendChild(thead);
-theTable.appendChild(tbody);
+    let cardImg = document.createElement("div");
+    cardImg.classList.add("image")
+    card.appendChild(cardImg);
 
-for (let i = 0; i < arrTh.length; i++) {
-    let th = document.createElement("th");
-    th.textContent = arrTh[i];
-    thead.appendChild(th)
+    let cardText = document.createElement("div");
+    cardText.classList.add("text")
+    card.appendChild(cardText);
+
+    let img = document.createElement("img");
+    img.setAttribute("src",employes[i]["img"]);
+    cardImg.appendChild(img);
+
+    let nameText = document.createElement("h3");
+    nameText.textContent = employes[i]["fullName"]
+    cardText.appendChild(nameText)
+
+    let idText = document.createElement("p");
+    idText.textContent = `ID Number:${employes[i]["id"]}`
+    cardText.appendChild(idText);
+
+    let depText = document.createElement("p");
+    depText.textContent = `Department:${employes[i]["dep"]}`
+    cardText.appendChild(depText);
+
+    let levelText = document.createElement("p");
+    levelText.textContent = "Level: " + employes[i]["level"]
+    cardText.appendChild(levelText);
+
+    let salaryText = document.createElement("p");
+    salaryText.textContent = `Salary:${employes[i]["salary"]}$`
+    cardText.appendChild(salaryText);
 }
 function add() {
-        let row = document.createElement("tr");
-        tbody.appendChild(row)
-        let arrKey = Object.keys(employes[employes.length-1]).slice(0,5);
-        for (j = 0; j < arrKey.length; j++){
-            let td = document.createElement("td");
-            row.appendChild(td);
-            td.textContent = employes[employes.length-1][arrKey[j]];
-        }
-    } 
+    let card = document.createElement("div");
+    document.querySelector("main .container").appendChild(card);
+    card.classList.add("card")
+    
+    let cardImg = document.createElement("div");
+    cardImg.classList.add("image")
+    card.appendChild(cardImg);
 
-    for (let i = 0; i < employes.length; i++) {
-        let row = document.createElement("tr");
-        tbody.appendChild(row)
-        let arrKey = Object.keys(employes[i]).slice(0,5);
-        for (j = 0; j < arrKey.length; j++){
-            let td = document.createElement("td");
-            row.appendChild(td);
-            td.textContent = employes[i][arrKey[j]];
-        }
-    } 
+    let cardText = document.createElement("div");
+    cardText.classList.add("text")
+    card.appendChild(cardText);
+
+    let img = document.createElement("img");
+    img.setAttribute("src",employes[employes.length-1]["img"]);
+    cardImg.appendChild(img);
+
+    let nameText = document.createElement("h3");
+    nameText.textContent = employes[employes.length-1]["fullName"]
+    cardText.appendChild(nameText)
+
+    let idText = document.createElement("p");
+    idText.textContent = `ID Number:${employes[employes.length-1]["id"]}`
+    cardText.appendChild(idText);
+
+    let depText = document.createElement("p");
+    depText.textContent = `Department:${employes[employes.length-1]["dep"]}`
+    cardText.appendChild(depText);
+
+    let levelText = document.createElement("p");
+    levelText.textContent = `Level:${employes[employes.length-1]["level"]}`
+    cardText.appendChild(levelText);
+
+    let salaryText = document.createElement("p");
+    salaryText.textContent = `Salary:${employes[employes.length-1]["salary"]}$`
+    cardText.appendChild(salaryText);
+        } 

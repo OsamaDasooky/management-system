@@ -12,15 +12,19 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS only -->
 </head>
-
 <body>
     <header>
-        <ul>
-            <li><a href="./index.html">Home</a> </li>
-            <li><a href="./accounting.html">Accounting</a></li>
-        </ul>
+        <div class="container">
+            <h2>Management System</h2>
+            <ul>
+                <li><a href="./index.html">Home</a> </li>
+                <li><a href="./accounting.html">Accounting</a></li>
+            </ul>
+        </div>
     </header>
     <main class="">
+        <div class="container">
+        </div>
     </main>
         <div class="login-box">
             <h2>Employee Information </h2>
@@ -30,7 +34,7 @@
                     <label>Full name</label>
                 </div>
                 <div class="user-box">
-                    <input type="number" name="id" required="">
+                    <input type="number" name="id" required>
                     <label>Employee ID </label>
                 </div>
                 <div class="select-box">
@@ -50,9 +54,9 @@
                         <option value="Senior">Senior</option>
                     </select>
                 </div>
-                    <div class="-box">
-                    <label >Profile Picture</label>
-                    <input type="file" name="img">
+                <div class="user-box">
+                    <input type="url" name="url" required>
+                    <label>Profile Picture </label>
                 </div>
                 <a  id="add">
                     Add 
@@ -62,18 +66,19 @@
                 </a>
             </form>
         </div>
-        
         <div class="add-btn">
             <button>Add Employee</button>
         </div>
-    <footer>
-        <div class="social">
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-solid fa-envelope"></i>
+        <footer>
+        <div class="container">
+            <div class="social">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <p>
+                &copy; 2022 Accounting world
+            </p>
         </div>
-        <p>
-            &copy; 2022 Accounting world
-        </p>
     </footer>
     <script src="./app.js"></script>
 </body>
