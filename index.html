@@ -1,25 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" 
-    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS only -->
 </head>
+
 <body>
     <header>
         <ul>
             <li><a href="./index.html">Home</a> </li>
-            <li><a href="./index.html">Accounting</a></li>
+            <li><a href="./accounting.html">Accounting</a></li>
         </ul>
     </header>
-    <main>
-    
+    <main class="">
     </main>
+        <div class="login-box">
+            <h2>Employee Information </h2>
+            <form>
+                <div class="user-box">
+                    <input type="text" name="fullName" required>
+                    <label>Full name</label>
+                </div>
+                <div class="user-box">
+                    <input type="number" name="id" required="">
+                    <label>Employee ID </label>
+                </div>
+                <div class="select-box">
+                    <label for="Department">Department</label><br>
+                    <select name="dep" id="Department " >
+                        <option value="Administration">Administration</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Development">Development</option>
+                        <option value="Finance">Finance</option>
+                    </select>
+                </div>
+                <div class="select-box">
+                    <label for="Level">Level </label><br>
+                    <select name="level" id="Level  ">
+                        <option value="Junior">Junior</option>
+                        <option value="Mid-Senior">Mid-Senior</option>
+                        <option value="Senior">Senior</option>
+                    </select>
+                </div>
+                    <div class="-box">
+                    <label >Profile Picture</label>
+                    <input type="file" name="img">
+                </div>
+                <a  id="add">
+                    Add 
+                </a>
+                <a id="close">
+                    Close 
+                </a>
+            </form>
+        </div>
+        
+        <div class="add-btn">
+            <button>Add Employee</button>
+        </div>
     <footer>
         <div class="social">
             <i class="fa-brands fa-facebook"></i>
@@ -28,8 +74,8 @@
         <p>
             &copy; 2022 Accounting world
         </p>
-        <script src="./app.js"></script>
-
     </footer>
+    <script src="./app.js"></script>
 </body>
+
 </html>
