@@ -55,9 +55,11 @@ submit.addEventListener("click", function () {
     addButton.style.opacity ="0"
     addButton.style.zIndex = "-10"
     document.getElementsByTagName("main")[0].classList.remove("blur");
-    add()
+    add();
+    saveToLocal()
 })
-//create elements
+employes = getFromLocal();
+
 for (let i = 0; i < employes.length; i++) {
     let card = document.createElement("div");
     document.querySelector("main .container").appendChild(card);
@@ -78,22 +80,22 @@ for (let i = 0; i < employes.length; i++) {
     let nameText = document.createElement("h3");
     nameText.textContent = employes[i]["fullName"]
     cardText.appendChild(nameText)
-
+    
     let idText = document.createElement("p");
     idText.textContent = `ID Number:${employes[i]["id"]}`
     cardText.appendChild(idText);
 
     let depText = document.createElement("p");
-    depText.textContent = `Department:${employes[i]["dep"]}`
+    depText.textContent = `Department:${employes[i]["dep"]}  Level:${employes[i]["level"]} - Salary:${employes[i]["salary"]}$`
     cardText.appendChild(depText);
-
-    let levelText = document.createElement("p");
-    levelText.textContent = "Level: " + employes[i]["level"]
-    cardText.appendChild(levelText);
-
-    let salaryText = document.createElement("p");
-    salaryText.textContent = `Salary:${employes[i]["salary"]}$`
-    cardText.appendChild(salaryText);
+}
+function saveToLocal() {
+    sttArr = JSON.stringify(employes);
+    localStorage.setItem("dataAll", sttArr)
+    return sttArr
+} 
+function getFromLocal() {
+    return JSON.parse(localStorage.getItem("dataAll"))
 }
 function add() {
     let card = document.createElement("div");
@@ -121,14 +123,7 @@ function add() {
     cardText.appendChild(idText);
 
     let depText = document.createElement("p");
-    depText.textContent = `Department:${employes[employes.length-1]["dep"]}`
+    depText.textContent = `Department:${employes[employes.length-1]["dep"]}  Level:${employes[employes.length-1]["level"]}  Salary:${employes[employes.length-1]["salary"]}$`
     cardText.appendChild(depText);
-
-    let levelText = document.createElement("p");
-    levelText.textContent = `Level:${employes[employes.length-1]["level"]}`
-    cardText.appendChild(levelText);
-
-    let salaryText = document.createElement("p");
-    salaryText.textContent = `Salary:${employes[employes.length-1]["salary"]}$`
-    cardText.appendChild(salaryText);
-        } 
+    document.forms[0].reset();
+} 
